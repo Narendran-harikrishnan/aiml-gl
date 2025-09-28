@@ -13,7 +13,7 @@ from huggingface_hub import login, HfApi
 api = HfApi(token=os.getenv("HF_TOKEN"))
 
 # Use the correct dataset path from your Hugging Face repository
-DATASET_PATH = "hf://datasets/ShaksML/Tourism/tourism.csv"
+DATASET_PATH = "hf://datasets/Narendran-harikrishnan/aiml-glaiml-gl.csv"
 
 df = pd.read_csv(DATASET_PATH)
 print("Dataset loaded successfully.")
@@ -62,7 +62,7 @@ for file_path in files:
         path_or_fileobj=file_path,
         path_in_repo=file_path.split("/")[-1],  # just the filename
         # Use the correct dataset repository ID
-        repo_id="ShaksML/tourism",
+        repo_id="Narendran-harikrishnan/aiml-gl",
         repo_type="dataset",
     )
 

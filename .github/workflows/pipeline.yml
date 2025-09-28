@@ -104,7 +104,7 @@ jobs:
           echo "Running $SCRIPT_PATH"
           python $SCRIPT_PATH
 
-  deploy-hosting:
+  deploy-app:
     runs-on: ubuntu-latest
     needs: [model-training, data-prep, register-dataset]
     steps:
@@ -127,9 +127,9 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          SCRIPT_PATH=$(find . -name "hosting.py" | head -n 1)
+          SCRIPT_PATH=$(find . -name "app.py" | head -n 1)
           if [ -z "$SCRIPT_PATH" ]; then
-            echo "❌ hosting.py not found"
+            echo "❌ app.py not found"
             exit 1
           fi
           echo "Running $SCRIPT_PATH"

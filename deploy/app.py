@@ -17,9 +17,9 @@ ENCODER_PATH = BASE_DIR.parent / "models" / "encoders.pkl"
 try:
     model = joblib.load(MODEL_PATH)
     encoders = joblib.load(ENCODER_PATH)
-    print("✅ Model and encoders loaded successfully.")
+    print("Model and encoders loaded successfully.")
 except Exception as e:
-    print("❌ Error loading model or encoders:", e)
+    print("Error loading model or encoders:", e)
     model = None
     encoders = None
 
@@ -59,8 +59,9 @@ def preprocess_input(data: dict):
 # Prediction Function
 # --------------------------
 def predict_tourism(age, income, family, package, destination, season, insurance):
+
     if model is None or encoders is None:
-        return "❌ Model or encoders not loaded properly. Please check setup."
+        return "Model or encoders not loaded properly. Please check setup."
 
     input_data = {
         "Age": age,
@@ -75,9 +76,9 @@ def predict_tourism(age, income, family, package, destination, season, insurance
     df = preprocess_input(input_data)
     try:
         prediction = model.predict(df)[0]
-        return f"🎯 Predicted result: {prediction}"
+        return f"Predicted result: {prediction}"
     except Exception as e:
-        return f"❌ Prediction failed: {str(e)}"
+        return f"Prediction failed: {str(e)}"
 
 # --------------------------
 # Gradio UI
@@ -113,7 +114,7 @@ with gr.Blocks(title="Tourism Prediction App") as app:
             value="Yes"
         )
 
-    predict_btn = gr.Button("🚀 Predict")
+    predict_btn = gr.Button("Predict")
     output = gr.Textbox(label="Prediction Result")
 
     predict_btn.click(

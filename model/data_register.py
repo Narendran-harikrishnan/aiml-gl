@@ -5,7 +5,7 @@ import os
 # Initialize API client
 api = HfApi(token=os.getenv("HF_TOKEN"))
 
-repo_id = "ShaksML/tourism"  # please create your space and repository
+repo_id = "Narendran-harikrishnan/aiml-gl"  # please create your space and repository
 repo_type = "dataset"
 
 # Step 1: Check if the space exists

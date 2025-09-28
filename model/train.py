@@ -30,7 +30,7 @@ api = HfApi(token=os.getenv("HF_TOKEN"))
 # =============================
 # Download dataset from Hugging Face
 # =============================
-repo_id = "ShaksML/tourism"
+repo_id = "Narendran-harikrishnan/aiml-gl"
 
 Xtrain_path = hf_hub_download(repo_id=repo_id, filename="Xtrain.csv", repo_type="dataset")
 Xtest_path = hf_hub_download(repo_id=repo_id, filename="Xtest.csv", repo_type="dataset")
